@@ -9,16 +9,15 @@ import mysql.connector
 # --------------------------------------------
 # Create Database Connection
 # --------------------------------------------
-
 import os
 import mysql.connector
 
-connection = mysql.connector.connect(
+conn = mysql.connector.connect(
     host=os.getenv("MYSQLHOST"),
+    port=int(os.getenv("MYSQLPORT", "3306")),
     user=os.getenv("MYSQLUSER"),
     password=os.getenv("MYSQLPASSWORD"),
-    database=os.getenv("MYSQLDATABASE"),
-    port=int(os.getenv("MYSQLPORT"))
+    database=os.getenv("MYSQLDATABASE")
 )
 
 
